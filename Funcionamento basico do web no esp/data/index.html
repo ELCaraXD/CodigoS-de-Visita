@@ -1,0 +1,33 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <h1>Me clique</h1>
+        <button onclick="ligarLed()">Me Clique</button><br> <!-- criando butao e chamando a função-->
+
+        <h1>Valor Aleatorio do esp</h1>
+        <h3><div id="valor">Carregando...</div></h3><!-- div que vai ficar os valores que vem do esp -->
+
+        <script>
+        
+            function ligarLed(){
+                fetch("/ligar");
+            }//fazendo um requerimento no site e puxando a função no esp 
+
+            function atualizar() {
+
+                fetch("http://192.168.3.7/pegar_valor.php")
+                    .then(response => response.json())
+                    .then(dado => {
+                        document.getElementById("valor").innerText = dado.temperatura + " Numero Maluco";
+                    });//puxando o valor do php e colocando na div
+            }
+
+        setInterval(atualizar, 800);//tempo que vai ficar atualizando a pagina
+
+        atualizar();
+
+        </script>
+    </body>
+</html>
