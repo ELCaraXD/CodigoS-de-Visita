@@ -1,0 +1,106 @@
+<html>
+    <head>
+        <title>Graifico que enche</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <style>
+            #corpo{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                height: 100%;
+            }
+            #Mold{
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 500px;
+                height: 500px;
+                border-radius: 50%;
+                background-color: gray;
+                color: white;
+            }
+            #meioCir1{
+                user-select: none;
+                display: flex;
+                align-items: center;
+                justify-content: left;
+                width: 450px;
+                height: 450px;
+                border-radius: 50%;
+                background-color: greenyellow;
+                color: black;                
+            }
+            #meioCir2{
+                position: absolute;
+                user-select: none;
+                display: flex;
+                align-items: center;
+                justify-content: left;
+                width: 450px;
+                height: 450px;
+                border-radius: 50%;
+                background-color: transparent;
+                color: black;                
+            }
+        </style>
+    </head>
+    <body>
+        <div id="corpo">
+            <div id="Mold">
+                <div id="meioCir1"><img src="seta.svg" height="20px" width="20px"></div>
+                <div id="meioCir2"></div>
+            </div>
+        </div>
+
+        <script>
+
+            let click = false;
+
+            let MPress = false;
+
+            document.addEventListener("mousedown", function() {
+                MPress = true;
+            });
+
+            document.addEventListener("mouseup", function() {
+                MPress = false;
+            });
+
+            document.addEventListener("click", function(event) {
+                if (event.target.id === "meioCir2") {
+                    click = true;
+                }
+            });
+
+            document.getElementById("meioCir2").addEventListener("mousemove", function(e){
+                console.log("Dentro da caixa:");
+
+                let cir = document.getElementById("meioCir1")
+                let cir2 = document.getElementById("meioCir2")
+                let posiM = e.offsetX;
+                let graus = 0;
+
+                console.log("offsetX:", posiM);
+                console.log("Graus de acordo com o mouse:", graus);  
+
+                if (click == true && MPress == true){
+            
+                    graus = posiM / 2.5;
+            
+                    cir.style.rotate =  graus + "deg";
+                    cir2.style.cursor =  "none";
+                }else{
+                    cir2.style.cursor =  "pointer";
+                }
+
+
+
+            });
+
+            
+            
+        </script>
+    </body>
+</html>
