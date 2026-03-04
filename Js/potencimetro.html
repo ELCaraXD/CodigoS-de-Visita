@@ -83,12 +83,11 @@
                 let graus = 0;
 
                 console.log("offsetX:", posiM);
-                console.log("Graus de acordo com o mouse:", graus);  
+                 
 
                 if (click == true && MPress == true){
-            
-                    graus = posiM / 2.5;
-            
+                    graus = posiM/2.5;
+                    console.log("Graus de acordo com o mouse:", graus); 
                     cir.style.rotate =  graus + "deg";
                     cir2.style.cursor =  "none";
                 }else{
