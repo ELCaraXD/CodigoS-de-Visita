@@ -1,4 +1,4 @@
-<ul><h1>passo a passo pra fazer seu servidor com o esp</h1></ul>
+<ul><h1>Passo a Passo pra fazer seu servidor com o esp</h1></ul>
    <li> crie um banco de dados no mysql</li>
    <li> crie uma tabela com id valor e data</li>
    <li> crie os arquivos php e coloque-os no htdocs do xmap</li>
