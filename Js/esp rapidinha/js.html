@@ -1,0 +1,66 @@
+<script>
+
+            let click = false;
+
+            let MPress = false;
+
+            document.addEventListener("mousedown", function() {
+                MPress = true;
+            });
+
+            document.addEventListener("mouseup", function() {
+                MPress = false;
+            });
+
+            document.addEventListener("click", function(event) {
+                if (event.target.id === "meioCir2") {
+                    click = true;
+                }
+            });
+
+            document.getElementById("meioCir2").addEventListener("mousemove", function(e){
+                console.log("Dentro da caixa:");
+
+                let cir = document.getElementById("meioCir1")
+                let cir2 = document.getElementById("meioCir2")
+                let posiM = e.offsetX;
+                let graus = 0;
+
+                console.log("offsetX:", posiM);
+                 
+
+                if (click == true && MPress == true){
+                    graus = posiM/2.5;
+                    console.log("Graus de acordo com o mouse:", graus); 
+                    cir.style.rotate =  graus + "deg";
+                    cir2.style.cursor =  "none";
+                }else{
+                    cir2.style.cursor =  "pointer";
+                }
+
+
+
+            });
+
+        ////////////
+
+            function ligarLed(){
+                fetch("/ligar");
+            }//fazendo um requerimento no site e puxando a função no esp 
+
+            function atualizar() {
+
+                fetch("http://192.168.3.7/pegar_valor.php")
+                    .then(response => response.json())
+                    .then(dado => {
+                        document.getElementById("valor").innerText = dado.temperatura + " Numero Maluco";
+                    });//puxando o valor do php e colocando na div
+            }
+
+        setInterval(atualizar, 800);//tempo que vai ficar atualizando a pagina
+
+        atualizar();
+
+        ////////////
+            
+        </script>
