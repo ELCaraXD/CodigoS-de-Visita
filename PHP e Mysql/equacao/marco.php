@@ -1,6 +1,12 @@
 <?php
 extract($_POST);
 if(isset($b1)) {
+
+    if ($a !=0){
+
+        if ($c >= 0){$c = $Res - $c; 
+        }else{$c = $Res + $c;}        
+        
         $d = ($b *$b)-(4*$a*$c);
         if($d < 0) $texto = "não é definido como real <br/>";
         if($d == 0) $texto = "x1 => x2 = ".-$b/(2*$a)."<br/>";
@@ -9,6 +15,11 @@ if(isset($b1)) {
             $x2 = (-$b - sqrt($d))/(2*$a);
             $texto = "x1 = ".$x1." x2= ".$x2."<br/>";
         }
+    }else{
+        if ($c >= 0){$x = ($Res - $c) / $b; 
+        }else{$x = ($Res + $c) / $b;}
+        $texto = "Resultado da equação de primeiro grau: ". $x ."<br>";
+    }
         
 	 
          $arq=fopen("resultados.txt","a");
