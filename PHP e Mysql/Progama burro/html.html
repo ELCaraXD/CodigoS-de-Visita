@@ -10,39 +10,7 @@
                 <input type="button" name="login" id="enviar" value="Enviar">
 			
 		</form>
-
-        <div id='C'></div>
-        <div id='B'></div>
-        <div id='A'></div>
-
-        <script>
-
-            function atualizar() {
-
-                fetch("http://172.25.112.1/php.php")
-                    .then(response => response.json())
-                    .then(dado => {
-                        document.getElementById("C").innerText = dado.C + " Valor de C";
-                    });//puxando o valor do php e colocando na div
-                
-                fetch("http://172.25.112.1/php.php")
-                    .then(response => response.json())
-                    .then(dado => {
-                        document.getElementById("B").innerText = dado.B + "  Valor de B";
-                    });
-
-                fetch("http://172.25.112.1/php.php")
-                    .then(response => response.json())
-                    .then(dado => {
-                        document.getElementById("A").innerText = dado.A + " Valor de A ";
-                    });
-            }
-
-        setInterval(atualizar, 800);//tempo que vai ficar atualizando a pagina
-
-        atualizar();
-        
-        </script>
+            
 
     </body>
 
