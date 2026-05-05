@@ -106,7 +106,7 @@
                 align-items: center;
                 width: 100%;
                 height: 30%;
-                background-color: aquamarine;
+                background-color: transparent;
             }
             #equac{
                 display: flex;  
@@ -116,7 +116,7 @@
                 align-items: center;
                 width: 100%;
                 height: 70%;
-                background-color: antiquewhite;
+                background-color: transparent;
             }
 
             .button{
@@ -146,3 +146,25 @@
             #VelocidadeAngular{
                 font-size: xx-large;
             }
+
+            #BarraVA{
+                border-radius: 10px;
+                width: 200px;
+                height: 20px;
+                background-color: green;
+                color: transparent;
+            }
+            #BarraMI{
+                border-radius: 10px;
+                width: 300px;
+                height: 25px;
+                background-color: blue;
+                color: transparent;
+            }
+            #BarraMA{
+                border-radius: 10px;
+                width: 100px;
+                height: 15px;
+                background-color: yellow;
+                color: transparent;
+            }       
